@@ -1,0 +1,26 @@
+drawBackground();
+function drawBackground() {
+  moveTo(160, 225);
+  penColor("skyblue");
+  dot(300);
+  penUp();
+  moveTo(250, 45);
+  penDown();
+  penColor("yellow");
+  dot(30);
+  penRGB(255, 255, 0, .5);
+  for (var i = 0; i < 10; i++) {
+    moveTo(250, 45);
+    penWidth(10);
+    turnTo(i*36);
+    moveForward(randomNumber(35, 45));
+  }
+  turnTo(0);
+  penColor("white");
+  for (var i = 0; i < 321; i++) {
+    penUp();
+    moveTo(i, randomNumber(375, 420));
+    penDown();
+    dot(40);
+  }
+}
