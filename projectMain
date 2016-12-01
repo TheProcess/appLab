@@ -1,0 +1,68 @@
+// background first
+function drawBackground() {
+  moveTo(160, 225);
+  penColor("skyblue");
+  dot(300);
+  penUp();
+  moveTo(250, 45);
+  penDown();
+  penColor("yellow");
+  dot(30);
+  penRGB(255, 255, 0, 0.5);
+  for (var i = 0; i < 10; i++) {
+    moveTo(250, 45);
+    penWidth(10);
+    turnTo(i*36);
+    moveForward(randomNumber(35, 45));
+  }
+  turnTo(0);
+  penColor("white");
+  for (var j = 0; j < 321; j++) {
+    penUp();
+    moveTo(j, randomNumber(375, 420));
+    penDown();
+    dot(40);
+  }
+}
+
+// house second
+
+// trees third
+
+// snow last
+function drawLeg(size) {
+  moveForward(size);
+  moveBackward(2 * size);
+  moveForward(size);
+  turnRight(60);
+}
+
+function drawSnow(x,y) {
+  penUp();
+  moveTo(x, y);
+  penDown();
+  penWidth(1);
+  penColor("white");
+  var legSize =randomNumber(4,6);
+  drawLeg(legSize);
+  drawLeg(legSize);
+  drawLeg(legSize);
+  turnLeft();
+  penUp();
+}
+
+function drawAllSnow() {
+  for(var i = 0; i < 300; i++) {
+    drawSnow(randomNumber(0,320), randomNumber(0,450));
+    for(var j = 0; j < 500; j++) { // This is just here to slow down the drawing of the snow
+      randomNumber();
+    }
+  }
+}
+
+// here's the code that actually runs
+hide();
+drawBackground();
+drawHouse(320 / 2, 450 / 2, 80);
+drawAllTrees();
+drawAllSnow();
