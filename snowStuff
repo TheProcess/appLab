@@ -1,0 +1,31 @@
+function drawLeg(size) {
+  moveForward(size);
+  moveBackward(2 * size);
+  moveForward(size);
+  turnRight(60);
+}
+
+function drawSnow(x,y) {
+  penUp();
+  moveTo(x, y);
+  penDown();
+  penColor("white");
+  drawLeg(4);
+  drawLeg(4);
+  drawLeg(4);
+  turnLeft();
+  penUp();
+}
+
+function drawAllSnow() {
+  for(var i = 0; i < 300; i++) {
+    drawSnow(randomNumber(0,320), randomNumber(0,450));
+    for(var j = 0; j < 500; j++) {
+      randomNumber();
+    }
+  }
+}
+
+penColor("black");
+dot(700);
+drawAllSnow();
