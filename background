@@ -22,9 +22,9 @@ function drawBackground() {
   }
   turnTo(0);
   penColor("white");
-  for (var i = 0; i < 321; i++) {
+  for (var j = 0; j < 321; j++) {
     penUp();
-    moveTo(i, randomNumber(375, 420));
+    moveTo(j, randomNumber(375, 420));
     penDown();
     dot(40);
   }
