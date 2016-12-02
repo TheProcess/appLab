@@ -44,7 +44,82 @@ function drawClouds(x,y) {
 // house second
 
 // trees third
+function drawTree(){
+  penUp();
+  var scalar = determinePos();
+  penDown();
+  penRGB(0, 0, 0,0.3);
+  turnTo(210);
+  penWidth(scalar * randomNumber(1, 5));
+  var height = scalar * randomNumber(10, 25);
+  moveForward(height);
+  
+  turnRight(180);
+  
+  moveForward(height);
+  turnTo(0);
 
+  var rand = randomNumber(0, 110 - 80);
+  var r = 70 + rand;
+  var g = 40 + rand;
+  var b = 20 + rand;
+  penRGB(r,g, b,1);
+  moveForward(height);
+}
+function determinePos(){
+  penUp();
+  hide();
+  var y = randomNumber(350, 450);
+  var x;
+  var scalar = determineSize(y);
+  var whichSide = randomNumber(0,1);
+    if(whichSide === 0){
+      x = randomNumber(0, 120);
+    }
+    else
+      x = randomNumber(200, 320);
+ moveTo(x,y);
+ return scalar;
+    
+}
+function determineSize(ypos) {
+  if(ypos >= 350 && ypos <360){
+    return 3;
+  }
+  if(ypos >= 360 && ypos <370){
+    return 3.5;
+  }
+  if(ypos >= 370 && ypos <380){
+    return 4;
+  }
+  if(ypos >= 380 && ypos <390){
+    return 4.5;
+  }
+  if(ypos >= 390 && ypos <400){
+    return 5;
+  }
+  if(ypos >= 400 && ypos <410){
+    return 5.5;
+  }
+  if(ypos >= 410 && ypos <420){
+    return 6;
+  }
+  if(ypos >= 420 && ypos <430){
+    return 7;
+  }
+  if(ypos >= 430 && ypos <440){
+    return 8;
+  }
+  if(ypos >= 440 && ypos <=450){
+    return 9;
+  }
+  
+}
+function drawAllTrees(){
+  for(var i = 0; i < 12; i++){
+    drawTree();
+  }
+}
 // snow last
 function drawLeg(size) {
   moveForward(size);
