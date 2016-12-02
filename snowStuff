@@ -9,23 +9,21 @@ function drawSnow(x,y) {
   penUp();
   moveTo(x, y);
   penDown();
-  penColor("white");
-  drawLeg(4);
-  drawLeg(4);
-  drawLeg(4);
+  penWidth(1);
+  penRGB(255,255,255,randomNumber(0,100)/100);
+  var legSize =randomNumber(4,6);
+  drawLeg(legSize);
+  drawLeg(legSize);
+  drawLeg(legSize);
   turnLeft();
   penUp();
 }
 
 function drawAllSnow() {
-  for(var i = 0; i < 300; i++) {
+  for(var i = 0; i < 150; i++) {
     drawSnow(randomNumber(0,320), randomNumber(0,450));
-    for(var j = 0; j < 500; j++) {
+    for(var j = 0; j < 500; j++) { // This is just here to slow down the drawing of the snow
       randomNumber();
     }
   }
 }
-
-penColor("black");
-dot(700);
-drawAllSnow();
