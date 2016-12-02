@@ -1,10 +1,4 @@
 // background first
-hide();
-drawBackground();
-drawClouds(0, 25);
-drawClouds(0, 25);
-drawClouds(160, 25);
-drawClouds(160, 25);
 function drawBackground() {
   moveTo(160, 225);
   penColor("skyblue");
@@ -23,9 +17,9 @@ function drawBackground() {
   }
   turnTo(0);
   penColor("white");
-  for (var i = 0; i < 321; i++) {
+  for (var j = 0; j < 321; j++) {
     penUp();
-    moveTo(i, randomNumber(375, 420));
+    moveTo(j, randomNumber(375, 420));
     penDown();
     dot(40);
   }
@@ -133,7 +127,7 @@ function drawSnow(x,y) {
   moveTo(x, y);
   penDown();
   penWidth(1);
-  penColor("white");
+  penRGB(255,255,255,randomNumber(0,100)/100);
   var legSize =randomNumber(4,6);
   drawLeg(legSize);
   drawLeg(legSize);
@@ -154,6 +148,10 @@ function drawAllSnow() {
 // here's the code that actually runs
 hide();
 drawBackground();
-drawHouse(320 / 2, 450 / 2, 80);
+drawClouds(0, 25);
+drawClouds(0, 25);
+drawClouds(160, 25);
+drawClouds(160, 25);
+// drawHouse(320 / 2, 450 / 2, 80);
 drawAllTrees();
 drawAllSnow();
