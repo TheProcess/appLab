@@ -1,25 +1,41 @@
 // background first
+hide();
+drawBackground();
+drawClouds(0, 25);
+drawClouds(0, 25);
+drawClouds(160, 25);
+drawClouds(160, 25);
 function drawBackground() {
   moveTo(160, 225);
   penColor("skyblue");
   dot(300);
   penUp();
-  moveTo(250, 45);
+  moveTo(250, 100);
   penDown();
   penColor("yellow");
   dot(30);
   penRGB(255, 255, 0, 0.5);
   for (var i = 0; i < 10; i++) {
-    moveTo(250, 45);
+    moveTo(250, 100);
     penWidth(10);
     turnTo(i*36);
     moveForward(randomNumber(35, 45));
   }
   turnTo(0);
   penColor("white");
-  for (var j = 0; j < 321; j++) {
+  for (var i = 0; i < 321; i++) {
     penUp();
-    moveTo(j, randomNumber(375, 420));
+    moveTo(i, randomNumber(375, 420));
+    penDown();
+    dot(40);
+  }
+  penWidth(1);
+}
+function drawClouds(x,y) {
+  penRGB(255, 255, 255, 0.3);
+  for (var i = 0; i < 11; i++) {
+    penUp();
+    moveTo((i*15)+x, randomNumber(y-10, y+10));
     penDown();
     dot(40);
   }
