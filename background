@@ -1,19 +1,21 @@
 hide();
 drawBackground();
-drawClouds(0, 45);
-drawClouds(150, 100);
+drawClouds(0, 25);
+drawClouds(0, 25);
+drawClouds(160, 25);
+drawClouds(160, 25);
 function drawBackground() {
   moveTo(160, 225);
   penColor("skyblue");
   dot(300);
   penUp();
-  moveTo(250, 45);
+  moveTo(250, 100);
   penDown();
   penColor("yellow");
   dot(30);
   penRGB(255, 255, 0, 0.5);
   for (var i = 0; i < 10; i++) {
-    moveTo(250, 45);
+    moveTo(250, 100);
     penWidth(10);
     turnTo(i*36);
     moveForward(randomNumber(35, 45));
