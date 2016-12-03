@@ -49,7 +49,7 @@ function drawTree(){
   penDown();
   penRGB(0, 0, 0,0.3);
   turnTo(210);
-  var width = scalar * randomNumber(1, 5);
+  var width = scalar * randomNumber(2, 4);
   penWidth(width);
   var height = scalar * randomNumber(10, 25);
   moveForward(500);
