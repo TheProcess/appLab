@@ -39,41 +39,67 @@ function drawClouds(x,y) {
 
 // trees third
 function drawTree(){
+  hide();
   penUp();
-  var scalar = determinePos();
+  var x = determineXpos();
+  var y = determineYpos();
+  var scalar = determineSize(y);
+  //draw shadow
+  moveTo(x, y);
   penDown();
   penRGB(0, 0, 0,0.3);
   turnTo(210);
-  penWidth(scalar * randomNumber(1, 5));
+  var width = scalar * randomNumber(1, 5);
+  penWidth(width);
   var height = scalar * randomNumber(10, 25);
   moveForward(height);
-  
   turnRight(180);
-  
   moveForward(height);
+  //draw trunk
   turnTo(0);
-
   var rand = randomNumber(0, 110 - 80);
   var r = 70 + rand;
   var g = 40 + rand;
   var b = 20 + rand;
   penRGB(r,g, b,1);
   moveForward(height);
+  //draw branches
+  drawBranches(x, y, height, width);
+  
 }
-function determinePos(){
+function drawBranches(x, y, h, w){
+  y -= h;
+  moveTo(x,y);
+  var wstore = w;
+  
+  for(var i = 0; i < randomNumber(4, 7); i++){
+  for(var j = 0; j < randomNumber(2,10); j++){
+    w = w /1.4;
+    penWidth(w);
+    turnRight(randomNumber(-45, 45));
+    moveForward(randomNumber(10, 30));
+  }
   penUp();
-  hide();
+  moveTo(x,y);
+  turnTo(0);
+  w = wstore;
+  penDown();
+  }
+}
+function determineYpos(){
   var y = randomNumber(350, 450);
+  return y;
+}
+function determineXpos(){
   var x;
-  var scalar = determineSize(y);
+ 
   var whichSide = randomNumber(0,1);
     if(whichSide === 0){
       x = randomNumber(0, 120);
     }
     else
       x = randomNumber(200, 320);
- moveTo(x,y);
- return scalar;
+ return x;
     
 }
 function determineSize(ypos) {
@@ -114,6 +140,7 @@ function drawAllTrees(){
     drawTree();
   }
 }
+drawAllTrees();
 // snow last
 function drawLeg(size) {
   moveForward(size);
