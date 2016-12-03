@@ -12,9 +12,9 @@ function drawTree(){
   var width = scalar * randomNumber(1, 5);
   penWidth(width);
   var height = scalar * randomNumber(10, 25);
-  moveForward(height);
+  moveForward(500);
   turnRight(180);
-  moveForward(height);
+  moveForward(500);
   //draw trunk
   turnTo(0);
   var rand = randomNumber(0, 110 - 80);
@@ -55,10 +55,10 @@ function determineXpos(){
  
   var whichSide = randomNumber(0,1);
     if(whichSide === 0){
-      x = randomNumber(0, 120);
+      x = randomNumber(0, 100);
     }
     else
-      x = randomNumber(200, 320);
+      x = randomNumber(220, 320);
  return x;
     
 }
@@ -100,4 +100,3 @@ function drawAllTrees(){
     drawTree();
   }
 }
-drawAllTrees();
