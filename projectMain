@@ -181,4 +181,4 @@ drawClouds(160, 25);
 drawClouds(160, 25);
 // drawHouse(320 / 2, 450 / 2, 80);
 drawAllTrees();
-drawAllSnow()
+drawAllSnow();
