@@ -36,6 +36,85 @@ function drawClouds(x,y) {
 }
 
 // house second
+function drawHouse(posX, posY, relSize){
+  hide();
+  penUp();
+  createCanvas("house"); // Required to define the house
+  setStrokeWidth(1);
+  relSize = relSize / 2;
+  
+  h_drawBody(posX, posY, relSize);
+  h_drawDoor(posX, posY, relSize);
+  h_drawWindows(posX, posY, relSize);
+}
+
+function h_drawBody(posX, posY, relSize){
+  setStrokeColor("black");
+  setFillColor("#815f2c");
+  rect(posX-relSize, posY, relSize, relSize);
+  setFillColor("#966F33");
+  rect(posX, posY, relSize, relSize);
+  
+  // roofOutline-2
+  setStrokeWidth((35*relSize)/160);
+  setStrokeColor("black");
+  line(posX-relSize, posY, posX+relSize, posY);
+  line(posX-relSize + ((20*relSize)/160), posY - ((25*relSize)/160), posX+relSize, posY-((25*relSize)/160));
+  line(posX-relSize + ((30*relSize)/160), posY - ((50*relSize)/160), posX+relSize, posY-((50*relSize)/160));
+  line(posX-relSize + ((40*relSize)/160), posY - ((75*relSize)/160), posX+relSize, posY-((75*relSize)/160));
+  line(posX - (relSize), posY, posX - 13*(relSize/16), posY - (11*relSize)/24);
+  line(posX + (relSize), posY, posX + 17*(relSize/16), posY - (11*relSize)/24);
+  // roofBody-2
+  setStrokeWidth(relSize/5);
+  setStrokeColor("#674c23");
+  line(posX-relSize, posY, posX+relSize, posY);
+  line(posX-relSize + ((20*relSize)/160), posY - ((25*relSize)/160), posX+relSize, posY-((25*relSize)/160));
+  line(posX-relSize + ((30*relSize)/160), posY - ((50*relSize)/160), posX+relSize, posY-((50*relSize)/160));
+  line(posX-relSize + ((40*relSize)/160), posY - ((75*relSize)/160), posX+relSize, posY-((75*relSize)/160));
+  line(posX - (relSize), posY, posX - 13*(relSize/16), posY - (11*relSize)/24);
+  line(posX + (relSize), posY, posX + 17*(relSize/16), posY - (11*relSize)/24);
+  
+  // roofOutline-1
+  setStrokeWidth((35*relSize)/160);
+  setStrokeColor("black");
+  line(posX, posY, posX + (relSize/2), posY - (3*relSize)/6);
+  line(posX + relSize, posY, posX + (relSize/2), posY - (3*relSize)/6);
+  line(posX, posY, posX+relSize, posY);
+  // roofBody-1
+  setStrokeWidth(relSize/5);
+  setStrokeColor("#7d5c2b");
+  line(posX, posY, posX + (relSize/2), posY - (3*relSize)/6);
+  line(posX + relSize, posY, posX + (relSize/2), posY - (3*relSize)/6);
+  line(posX, posY, posX+relSize, posY);
+  // roofFill-1
+  setStrokeWidth(relSize/3);
+  line(posX + (relSize/4), posY-(1*relSize)/6, posX + ((3*relSize)/4), posY-(1*relSize)/6);
+  setStrokeWidth((relSize*5)/24);
+  line(posX + (relSize/4), posY-(3*relSize)/12, posX + ((3*relSize)/4), posY-(3*relSize)/12);
+  
+  setStrokeWidth(1);
+}
+
+function h_drawWindows(posX, posY, relSize){
+  setStrokeColor("black");
+  setFillColor("rgba(255,255,255,0.8)");
+  rect(posX-relSize+(3 * relSize)/16, posY-relSize+(10 * relSize)/8, (5 * relSize)/8, (4/8)*relSize);
+}
+
+function h_drawDoor(posX, posY, relSize){
+  doorSx = posX + (1/3) * relSize;
+  doorSy = posY + (1/4) * relSize;
+  setStrokeColor("black");
+  setFillColor("white");
+  rect(doorSx, doorSy, relSize/3, (3/4)*relSize); //DoorBase
+  
+  rect(doorSx + relSize/12, doorSy + (3/32)* relSize , relSize/6, (4/16)*relSize); //DoorWindow1
+  
+  rect(doorSx + relSize/12, doorSy + (13/32)* relSize , relSize/6, (3/16)*relSize); //DoorWindow2
+  
+  setFillColor("#B5A642");
+  circle(doorSx + (14*relSize)/48, doorSy + (24/64)* relSize, (1/64)*relSize); //DoorHandle
+}
 
 // trees third
 function drawTree(){
@@ -95,7 +174,7 @@ function determineXpos(){
  
   var whichSide = randomNumber(0,1);
     if(whichSide === 0){
-      x = randomNumber(0, 100);
+      x = randomNumber(0, 90);
     }
     else
       x = randomNumber(220, 320);
@@ -179,6 +258,6 @@ drawClouds(0, 25);
 drawClouds(0, 25);
 drawClouds(160, 25);
 drawClouds(160, 25);
-// drawHouse(320 / 2, 450 / 2, 80);
+drawHouse((320 / 2) - 10, 320, 100);
 drawAllTrees();
 drawAllSnow();
