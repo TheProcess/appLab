@@ -4,7 +4,6 @@ drawClouds(0, 25);
 drawClouds(0, 25);
 drawClouds(160, 25);
 drawClouds(160, 25);
-drawPath();
 function drawBackground() {
   moveTo(160, 225);
   penColor("skyblue");
@@ -40,14 +39,3 @@ function drawClouds(x,y) {
     dot(40);
   }
 }
-function drawPath() {
-  penUp();
-  moveTo(160, 450);
-  penDown();
-  penColor("gray");
-  for (var i = 0; i < 100; i++) {
-    moveTo(227, 450-i);
-    dot(50-3*(i/10));
-  }
-}
-
