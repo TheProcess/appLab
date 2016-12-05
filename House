@@ -17,6 +17,23 @@ function h_drawBody(posX, posY, relSize){
   setFillColor("#966F33");
   rect(posX, posY, relSize, relSize);
   
+  // shadowplay "to the center of the city"
+  setStrokeWidth(relSize/4);
+  setStrokeColor("rgba(0,0,0,0.40)");
+  setFillColor("rgba(0,0,0,0.1)");
+  line(posX - relSize + (relSize/16), posY + ((9*relSize)/8), posX + relSize - (relSize/16), posY + ((9*relSize)/8));
+  line(posX - relSize, posY + ((9*relSize)/8) + (relSize/4), posX + relSize - (relSize/8), posY + ((9*relSize)/8) + (relSize/4));
+  line(posX - relSize - (relSize/16), posY + ((9*relSize)/8) + (relSize/2), posX + relSize - (relSize/8) - (relSize/16), posY + ((9*relSize)/8) + (relSize/2));
+  line(posX - relSize + (1*relSize)/24, posY + ((9*relSize)/8), posX - relSize - (2*relSize)/24, posY + ((9*relSize)/8) + (relSize/2));
+  line(posX - relSize + (7*relSize)/24, posY + ((9*relSize)/8), posX - relSize + (4*relSize)/24, posY + ((9*relSize)/8) + (relSize/2));
+  line(posX - relSize + (13*relSize)/24, posY + ((9*relSize)/8), posX - relSize + (10*relSize)/24, posY + ((9*relSize)/8) + (relSize/2));
+  line(posX - relSize + (19*relSize)/24, posY + ((9*relSize)/8), posX - relSize + (16*relSize)/24, posY + ((9*relSize)/8) + (relSize/2));
+  line(posX - relSize + (25*relSize)/24, posY + ((9*relSize)/8), posX - relSize + (22*relSize)/24, posY + ((9*relSize)/8) + (relSize/2));
+  line(posX - relSize + (31*relSize)/24, posY + ((9*relSize)/8), posX - relSize + (28*relSize)/24, posY + ((9*relSize)/8) + (relSize/2));
+  line(posX - relSize + (37*relSize)/24, posY + ((9*relSize)/8), posX - relSize + (34*relSize)/24, posY + ((9*relSize)/8) + (relSize/2));
+  line(posX - relSize + (43*relSize)/24, posY + ((9*relSize)/8), posX - relSize + (40*relSize)/24, posY + ((9*relSize)/8) + (relSize/2));
+  line(posX - relSize + (49*relSize)/24, posY + ((9*relSize)/8), posX - relSize + (46*relSize)/24, posY + ((9*relSize)/8) + (relSize/2));
+  
   // roofOutline-2
   setStrokeWidth((35*relSize)/160);
   setStrokeColor("black");
@@ -35,7 +52,6 @@ function h_drawBody(posX, posY, relSize){
   line(posX-relSize + ((40*relSize)/160), posY - ((75*relSize)/160), posX+relSize, posY-((75*relSize)/160));
   line(posX - (relSize), posY, posX - 13*(relSize/16), posY - (11*relSize)/24);
   line(posX + (relSize), posY, posX + 17*(relSize/16), posY - (11*relSize)/24);
-  
   // roofOutline-1
   setStrokeWidth((35*relSize)/160);
   setStrokeColor("black");
