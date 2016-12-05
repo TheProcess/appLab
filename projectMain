@@ -124,8 +124,8 @@ function h_drawWindows(posX, posY, relSize){
 }
 
 function h_drawDoor(posX, posY, relSize){
-  doorSx = posX + (1/3) * relSize;
-  doorSy = posY + (1/4) * relSize;
+  var doorSx = posX + (1/3) * relSize;
+  var doorSy = posY + (1/4) * relSize;
   setStrokeColor("black");
   setFillColor("white");
   rect(doorSx, doorSy, relSize/3, (3/4)*relSize); //DoorBase
