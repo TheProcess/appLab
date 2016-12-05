@@ -35,6 +35,9 @@ function h_drawBody(posX, posY, relSize){
   line(posX - relSize + (49*relSize)/24, posY + ((9*relSize)/8), posX - relSize + (46*relSize)/24, posY + ((9*relSize)/8) + (relSize/2));
   
   // roofOutline-2
+  setStrokeWidth(2);
+  setFillColor("#815f2c");
+  rect(posX+relSize, posY - (relSize/3), 2*(relSize/16), relSize + (relSize/3));
   setStrokeWidth((35*relSize)/160);
   setStrokeColor("black");
   line(posX-relSize, posY, posX+relSize, posY);
@@ -43,6 +46,7 @@ function h_drawBody(posX, posY, relSize){
   line(posX-relSize + ((40*relSize)/160), posY - ((75*relSize)/160), posX+relSize, posY-((75*relSize)/160));
   line(posX - (relSize), posY, posX - 13*(relSize/16), posY - (11*relSize)/24);
   line(posX + (relSize), posY, posX + 17*(relSize/16), posY - (11*relSize)/24);
+
   // roofBody-2
   setStrokeWidth(relSize/5);
   setStrokeColor("#674c23");
@@ -70,7 +74,9 @@ function h_drawBody(posX, posY, relSize){
   setStrokeWidth((relSize*5)/24);
   line(posX + (relSize/4), posY-(3*relSize)/12, posX + ((3*relSize)/4), posY-(3*relSize)/12);
   
+
   setStrokeWidth(1);
+  
 }
 
 function h_drawWindows(posX, posY, relSize){
@@ -93,8 +99,3 @@ function h_drawDoor(posX, posY, relSize){
   setFillColor("#B5A642");
   circle(doorSx + (14*relSize)/48, doorSy + (24/64)* relSize, (1/64)*relSize); //DoorHandle
 }
-
-// @params (positionX, positionY, totalWidth)
-drawHouse(160, 225, 270);
-// centered = 160::225
-// 80 for path
